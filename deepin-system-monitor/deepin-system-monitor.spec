@@ -1,6 +1,6 @@
 %global _default_patch_fuzz 2
 Name:           deepin-system-monitor
-Version:        5.6.2
+Version:        5.6.3.1
 Release:        1%{?dist}
 Summary:        A more user-friendly system monitor
 License:        GPLv3
@@ -68,7 +68,6 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/*.appdata.
 %caps(cap_kill,cap_net_raw,cap_dac_read_search,cap_sys_ptrace=+ep) %{_bindir}/%{name}
 %{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
 %{_datadir}/%{name}/
 %{_datadir}/polkit-1/actions/com.deepin.*.policy
 
