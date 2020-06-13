@@ -1,0 +1,88 @@
+Name:           deepin-calculator
+Version:        5.5.9
+Release:        1%{?dist}
+Summary:        An easy to use calculator for ordinary users
+License:        GPLv3
+URL:            https://github.com/linuxdeepin/deepin-calculator
+Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
+
+BuildRequires:  qt5-linguist
+BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5Gui)
+BuildRequires:  pkgconfig(Qt5Widgets)
+BuildRequires:  pkgconfig(Qt5Svg)
+BuildRequires:  pkgconfig(dtkwidget) >= 2.0
+BuildRequires:  pkgconfig(Qt5Multimedia)
+BuildRequires:  pkgconfig(Qt5X11Extras)
+BuildRequires:  desktop-file-utils
+Requires:       hicolor-icon-theme
+
+%description
+%{summary}.
+
+%prep
+%setup -q
+sed -i 's|lrelease|lrelease-qt5|' translate_generation.sh
+sed -i 's|59 Temple Place, Suite 330|51 Franklin Street, Fifth Floor|;
+        s|Boston, MA 02111-1307 USA.|Boston, MA 02110-1335, USA.|' math/*.{c,h}
+
+%build
+%qmake_qt5 PREFIX=%{_prefix}
+%make_build
+
+%install
+%make_install INSTALL_ROOT=%{buildroot}
+
+%check
+desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop ||:
+
+%files
+%doc README.md
+%license LICENSE
+%{_bindir}/%{name}
+%{_datadir}/%{name}/
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/icons/hicolor/scalable/apps/%{name}.svg
+
+%changelog
+* Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 5.0.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
+* Mon Aug 05 2019 Robin Lee <cheeselee@fedoraproject.org> - 5.0.1-1
+- Release 5.0.1
+
+* Wed Jul 24 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.10-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
+* Thu Jan 31 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.10-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Thu Nov 29 2018 mosquito <sensor.wen@gmail.com> - 1.0.10-1
+- Update to 1.0.10
+
+* Fri Nov  9 2018 mosquito <sensor.wen@gmail.com> - 1.0.9-1
+- Update to 1.0.9
+
+* Sat Aug 25 2018 mosquito <sensor.wen@gmail.com> - 1.0.6-1
+- Update to 1.0.6
+
+* Thu Aug  2 2018 mosquito <sensor.wen@gmail.com> - 1.0.5-1
+- Update to 1.0.5
+
+* Mon Jul 23 2018 mosquito <sensor.wen@gmail.com> - 1.0.4-1
+- Update to 1.0.4
+
+* Thu Jul 12 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
+* Tue Mar 20 2018 mosquito <sensor.wen@gmail.com> - 1.0.2-1
+- Update to 1.0.2
+
+* Sat Dec  9 2017 mosquito <sensor.wen@gmail.com> - 1.0.1-1
+- Update to 1.0.1
+
+* Sat Dec  2 2017 mosquito <sensor.wen@gmail.com> - 1.0.0-1
+- Update to 1.0.0
+
+* Mon Nov 27 2017 mosquito <sensor.wen@gmail.com> - 0.9.0-1
+- Initial package build

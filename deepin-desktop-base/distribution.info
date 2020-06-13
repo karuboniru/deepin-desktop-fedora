@@ -1,0 +1,7 @@
+[Distribution]
+Name=Fedora
+WebsiteName=getfedora.org
+Website=https://getfedora.org
+Logo=/usr/share/fedora-logos/fedora_logo.svg
+LogoLight=/usr/share/fedora-logos/fedora_lightbackground.svg
+LogoTransparent=/usr/share/fedora-logos/fedora_logo.svg

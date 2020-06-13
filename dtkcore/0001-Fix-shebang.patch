@@ -1,0 +1,33 @@
+From 5262f90a3984155b2829b7000274008c344c1e97 Mon Sep 17 00:00:00 2001
+From: Robin Lee <cheeselee@fedoraproject.org>
+Date: Fri, 9 Aug 2019 22:42:56 +0800
+Subject: [PATCH] Fix shebang
+
+---
+ tools/script/dtk-license.py   | 2 +-
+ tools/script/dtk-translate.py | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tools/script/dtk-license.py b/tools/script/dtk-license.py
+index bc3a071..cf49e81 100644
+--- a/tools/script/dtk-license.py
++++ b/tools/script/dtk-license.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python3
+ 
+ import fnmatch
+ import os
+diff --git a/tools/script/dtk-translate.py b/tools/script/dtk-translate.py
+index 9cb06f8..97bb7e6 100644
+--- a/tools/script/dtk-translate.py
++++ b/tools/script/dtk-translate.py
+@@ -1,4 +1,4 @@
+-#!env python
++#!/usr/bin/env python3
+ 
+ import sys,os,fnmatch
+ from subprocess import call
+-- 
+2.21.0
+

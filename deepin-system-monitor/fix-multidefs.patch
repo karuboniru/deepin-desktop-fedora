@@ -1,0 +1,51 @@
+diff --git a/src/process/desktop_entry_stat.cpp b/src/process/desktop_entry_stat.cpp
+index d2bedc6..2746d1e 100644
+--- a/src/process/desktop_entry_stat.cpp
++++ b/src/process/desktop_entry_stat.cpp
+@@ -35,10 +35,10 @@ DCORE_USE_NAMESPACE
+ 
+ static const int kUpdateInterval = 1000 * 300; // 5 minutes interval
+ 
+-auto print_err = [](decltype(errno) e, const QString &msg)
++static void print_err(decltype(errno) e, const QString &msg)
+ {
+     qDebug() << QString("Error: [%1] %2, ").arg(e).arg(strerror(e)) << msg;
+-};
++}
+ 
+ DesktopEntryStat::DesktopEntryStat(QObject *parent) : QObject(parent)
+ {
+diff --git a/src/process/process_stat.cpp b/src/process/process_stat.cpp
+index e68052e..5aec999 100644
+--- a/src/process/process_stat.cpp
++++ b/src/process/process_stat.cpp
+@@ -42,10 +42,10 @@
+ #define PROC_FD_NAME_PATH       "/proc/%u/fd/%s"
+ #define PROC_SCHEDSTAT_PATH     "/proc/%u/schedstat"
+ 
+-auto print_err = [](decltype(errno) e, const QString &msg)
++static void print_err(decltype(errno) e, const QString &msg)
+ {
+     qDebug() << QString("Error: [%1] %2, ").arg(e).arg(strerror(e)) << msg;
+-};
++}
+ 
+ // ref: sysstat#common.c#get_kb_shift
+ static inline unsigned int get_kb_shift(void)
+diff --git a/src/process/system_stat.cpp b/src/process/system_stat.cpp
+index 16bb998..3d96b91 100644
+--- a/src/process/system_stat.cpp
++++ b/src/process/system_stat.cpp
+@@ -42,10 +42,10 @@
+ 
+ #define MAX_NAME_LEN 128
+ 
+-auto print_err = [](decltype(errno) e, const QString &msg)
++static void print_err(decltype(errno) e, const QString &msg)
+ {
+     qDebug() << QString("Error: [%1] %2, ").arg(e).arg(strerror(e)) << msg;
+-};
++}
+ 
+ bool SystemStat::readUpTime(qulonglong &uptime)
+ {
