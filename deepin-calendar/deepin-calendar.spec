@@ -1,7 +1,7 @@
 %global repo dde-calendar
 
 Name:           deepin-calendar
-Version:        5.6.2
+Version:        5.6.7
 Release:        1%{?dist}
 Summary:        Calendar for Deepin Desktop Environment
 License:        GPLv3+

@@ -1,7 +1,7 @@
 %global repo dde-control-center
 
 Name:           deepin-control-center
-Version:        5.1.0.12
+Version:        5.2.0.3
 Release:        1%{?dist}
 Summary:        New control center for Linux Deepin
 License:        GPLv3

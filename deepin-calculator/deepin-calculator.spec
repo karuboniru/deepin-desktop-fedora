@@ -1,5 +1,5 @@
 Name:           deepin-calculator
-Version:        5.5.9
+Version:        5.5.14
 Release:        1%{?dist}
 Summary:        An easy to use calculator for ordinary users
 License:        GPLv3
