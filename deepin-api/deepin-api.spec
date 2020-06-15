@@ -9,7 +9,7 @@
 
 %global goipath  pkg.deepin.io/dde/api
 %global forgeurl https://github.com/linuxdeepin/dde-api
-Version:        5.1.11.1
+Version:        5.2.0.0
 %global tag     %{version}
 
 %gometa
