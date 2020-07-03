@@ -23,8 +23,6 @@ Requires:       hicolor-icon-theme
 %prep
 %setup -q
 sed -i 's|lrelease|lrelease-qt5|' translate_generation.sh
-sed -i 's|59 Temple Place, Suite 330|51 Franklin Street, Fifth Floor|;
-        s|Boston, MA 02111-1307 USA.|Boston, MA 02110-1335, USA.|' math/*.{c,h}
 
 %build
 %qmake_qt5 PREFIX=%{_prefix}
