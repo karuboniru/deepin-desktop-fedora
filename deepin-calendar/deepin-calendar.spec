@@ -34,11 +34,16 @@ Calendar for Deepin Desktop Environment.
 %build
 # help find (and prefer) qt5 utilities, e.g. qmake, lrelease
 export PATH=%{_qt5_bindir}:$PATH
-%qmake_qt5
+mkdir -p %{_target_platform}
+pushd %{_target_platform}
+%{cmake} ..
 %make_build
+popd
 
 %install
+pushd %{_target_platform}
 %make_install INSTALL_ROOT=%{buildroot}
+popd
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{repo}.desktop
