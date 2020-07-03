@@ -1,12 +1,12 @@
 %global repo dde-calendar
 
 Name:           deepin-calendar
-Version:        5.6.7
+Version:        5.7.0.3
 Release:        1%{?dist}
 Summary:        Calendar for Deepin Desktop Environment
 License:        GPLv3+
 URL:            https://github.com/linuxdeepin/dde-calendar
-Source0:        %{url}/archive/%{version}/%{repo}-%{version}.tar.gz
+Source0:        %{url}/archive/%{version}.tar.gz
 
 BuildRequires:  deepin-gettext-tools
 BuildRequires:  desktop-file-utils
@@ -27,9 +27,9 @@ Calendar for Deepin Desktop Environment.
 
 %prep
 %setup -q -n %{repo}-%{version}
-sed -i '/QMenuBar/a #include <QMouseEvent>/' src/yearwindow.cpp
-sed -i '/<QQueue>/a #include <QMouseEvent>/' src/daymonthview.cpp
-sed -i '/<QStylePainter>/a #include <QMouseEvent>/' src/schcedulesearchview.cpp
+# sed -i '/QMenuBar/a #include <QMouseEvent>/' src/yearwindow.cpp
+# sed -i '/<QQueue>/a #include <QMouseEvent>/' src/daymonthview.cpp
+# sed -i '/<QStylePainter>/a #include <QMouseEvent>/' src/schcedulesearchview.cpp
 
 %build
 # help find (and prefer) qt5 utilities, e.g. qmake, lrelease
